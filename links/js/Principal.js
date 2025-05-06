@@ -30,13 +30,41 @@ class Peca {
     };
     MovePeca(destino) {
         this.posicao = destino;
-   this.DesenhaPeca();
+        this.DesenhaPeca();
         DesenhaPecasJogando();
         jogada++;
+        giraTabuleiro();
     }
 };
 
 
+function giraTabuleiro() {
+
+    if (jogada % 2 == 0) {
+        document.getElementById('tabuleiroCompleto').style = `
+    transform: rotate(180deg);
+    `
+
+        let nodeList = document.querySelectorAll('.peca');
+
+        console.log(nodeList)
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style = `
+            transform: rotate(180deg);
+            `
+        }
+
+
+
+    }
+    else {
+        document.getElementById('tabuleiroCompleto').style = `
+    transform: rotate(0deg);
+    `
+    }
+
+
+}
 
 function DesenhaTabuleiro() {
     var tabuleiro = '';
@@ -78,7 +106,7 @@ function DesenhaPecasIniciais() {
     PecasJogando.push(PeaoBranco04 = new Peca('PeaoBranco04', 25));
     PecasJogando.push(ReiBranco1 = new Peca('ReiBranco1', 23));
 
-    
+
     //Peças Pretas
     PecasJogando.push(PeaoPreto01 = new Peca('PeaoPreto01', 1));
     PecasJogando.push(PeaoPreto02 = new Peca('PeaoPreto02', 2));
@@ -98,18 +126,18 @@ var cartaAtiva = ''
 
 cartas = ['Dragao', 'Boi', 'Cavalo', 'Gansa', 'Iguana']
 
-function carregaCartas(){
-  
-    for(item in cartas){
-    idCarta = parseInt(item)
-    idCarta =  `carta${idCarta+1}`
-       document.getElementById(idCarta).innerHTML=`<img src="./links/img/carta${cartas[item]}.png" onclick="alteraCarta('carta${cartas[item]}', '${idCarta}')"></img>`
+function carregaCartas() {
+
+    for (item in cartas) {
+        idCarta = parseInt(item)
+        idCarta = `carta${idCarta + 1}`
+        document.getElementById(idCarta).innerHTML = `<img src="./links/img/carta${cartas[item]}.png" onclick="alteraCarta('carta${cartas[item]}', '${idCarta}')"></img>`
+    }
+
+
 }
 
-    
-}
-
-function alteraCarta(carta, id){
+function alteraCarta(carta, id) {
 
     let vez = ''
     if (jogada % 2 != 0) { vez = 'branco' }
@@ -123,25 +151,25 @@ function alteraCarta(carta, id){
 
     console.log(jogadorCartas)
 
-    for(item in cartas){
+    for (item in cartas) {
 
         idCarta = parseInt(item)
-        idCarta =  `carta${idCarta+1}`
+        idCarta = `carta${idCarta + 1}`
 
 
-        if(idCarta == id ){
+        if (idCarta == id) {
             document.getElementById(idCarta).style = 'box-shadow: 0px 0px 8px 5px rgba(0, 200, 200, 0.7);';
         }
-        else{
+        else {
             document.getElementById(idCarta).style = 'border: 2px solid black;';
         }
-        
-    
-        }
-    
+
+
+    }
+
 
     DesenhaPecasJogando();
- 
+
 }
 
 function CaminhoPeca(nome, posicao) {
@@ -159,7 +187,7 @@ function CaminhoPeca(nome, posicao) {
 
     VezJogador();
     ValidaPosicoes();
-    
+
     function VezJogador() { //valida de quem e a vez de jogar
         if (nomeBusca.includes("branco")) { meuTime = 'branco'; }
         else if (nomeBusca.includes("preto")) { meuTime = 'preto'; }
@@ -250,7 +278,7 @@ function CaminhoPeca(nome, posicao) {
                 }
             }
         }
-      
+
         //desenha casas livres
         if (vez == meuTime) {
             //desenha casas livres
@@ -723,26 +751,26 @@ function CaminhoPeca(nome, posicao) {
 */
 
 
-for(c in casasInimigasNoCaminho){
+    for (c in casasInimigasNoCaminho) {
 
-    for(item in PecasJogando){
+        for (item in PecasJogando) {
 
-        if(casasInimigasNoCaminho[0] == PecasJogando[item].posicao){
-            if(PecasJogando[item].nome.includes('Rei')){
-                xequeDe = nome;
-                //console.log(PecasJogando[item]);
-                xeque = true
+            if (casasInimigasNoCaminho[0] == PecasJogando[item].posicao) {
+                if (PecasJogando[item].nome.includes('Rei')) {
+                    xequeDe = nome;
+                    //console.log(PecasJogando[item]);
+                    xeque = true
 
-                xequeEm = PecasJogando[item].nome;
+                    xequeEm = PecasJogando[item].nome;
+
+                }
 
             }
-
         }
-    }
-    
 
-}
-    
+
+    }
+
 };
 
 function CapturaPeca(ataque, defesa) {
@@ -1140,7 +1168,7 @@ function ValidaCaminhosInimigos(time) {
 };
 
 function Xeque() {
-    
+
     ValidaPecasAmeacadas();
 
 }
@@ -1177,7 +1205,7 @@ function RecortaImagem(id, inicioX, incioY, largura, altura) {
     };
 }
 
-function ValidaPecasAmeacadas(){
+function ValidaPecasAmeacadas() {
 
     xeque = false
 
@@ -1187,19 +1215,19 @@ function ValidaPecasAmeacadas(){
     for (var i = 0; i < PecasJogando.length; i++) {
 
 
-           CaminhoPeca(`'${PecasJogando[i].nome}'`,PecasJogando[i].posicao);
-           //console.log(casasAmeacadas)
-         
-      };
-     
-  
-      DesenhaPecasJogando();
+        CaminhoPeca(`'${PecasJogando[i].nome}'`, PecasJogando[i].posicao);
+        //console.log(casasAmeacadas)
 
-      if(xeque){
-        console.log(`xeque de ${xequeDe} em ${xequeEm} na jogada -> ${jogada}` )
-      }
+    };
 
-    
+
+    DesenhaPecasJogando();
+
+    if (xeque) {
+        console.log(`xeque de ${xequeDe} em ${xequeEm} na jogada -> ${jogada}`)
+    }
+
+
 }
 
 

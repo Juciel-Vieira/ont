@@ -4,12 +4,30 @@
 
 *******************************************************/
 
-body{
+body {
 	background-color: rgb(231, 228, 228);
 }
 
 
 
+@-moz-keyframes spin {
+	100% {
+		-moz-transform: rotate(180deg);
+	}
+}
+
+@-webkit-keyframes spin {
+	100% {
+		-webkit-transform: rotate(180deg);
+	}
+}
+
+@keyframes spin {
+	100% {
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+}
 
 /******************************************************
 
@@ -17,44 +35,44 @@ body{
 
 *******************************************************/
 
-.casaBranca{
+.casaBranca {
 	background-color: rgb(207, 207, 207);
 	color: blueviolet;
 }
 
-.casaPreta{
+.casaPreta {
 	background-color: rgb(100, 100, 100);
 	color: blueviolet;
 }
 
-.caminho{
+.caminho {
 	width: 55px;
 	height: 55px;
 	background-color: rgba(128, 236, 255, 0.699);
 	border: none;
 }
 
-.semCaminho{
+.semCaminho {
 	width: 90%;
 	height: 90%;
 	background-color: rgba(128, 236, 255, 0);
 	border: none;
 }
 
-.pecaInimiga{
+.pecaInimiga {
 	width: 55px;
 	height: 55px;
 	background-color: rgba(255, 137, 41, 0.808);
 }
 
-.tabuleiro{
-    width: 20em;
+.tabuleiro {
+	width: 20em;
 	height: 20em;
 	border: 2px solid black;
 }
 
-#cartasBrancas{
-    width: 20em;
+#cartasBrancas {
+	width: 20em;
 	height: 7em;
 	border: 2px solid black;
 	margin: auto;
@@ -64,9 +82,9 @@ body{
 	align-items: center;
 }
 
-#cartasPretas{
+#cartasPretas {
 	rotate: 180deg;
-    width: 20em;
+	width: 20em;
 	height: 7em;
 	border: 2px solid black;
 	margin: auto;
@@ -76,8 +94,8 @@ body{
 	align-items: center;
 }
 
-#cartaCentro{
-    width: 7em;
+#cartaCentro {
+	width: 7em;
 	height: 7em;
 	border: 2px solid black;
 	background-color: rgb(186, 186, 186);
@@ -86,49 +104,49 @@ body{
 	align-items: center;
 }
 
-#tabuleiroCarta{
+#tabuleiroCarta {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.carta{
+.carta {
 	width: 4em;
 	height: 5em;
 	border: 2px solid black;
 }
 
-.carta:hover{
+.carta:hover {
 	width: 6em;
 	height: 7em;
 	border: 2px solid black;
 }
 
-.carta img{
+.carta img {
 	width: 100%;
 	height: 100%;
 }
 
-.peca{
+.peca {
 	width: 3em;
 	height: 3em;
 	margin: 0px;
 	padding: 0px;
 }
 
-.promocaoBranco{
+.promocaoBranco {
 	width: 100px;
 	height: 100px;
 	margin: auto;
 	padding: 20px;
 }
 
-.promocaoPreto{
+.promocaoPreto {
 	width: 100px;
 	height: 100px;
 	margin: auto;
 	padding: 40px;
-   	transform:  rotate(180deg);
+	transform: rotate(180deg);
 }
 
 
@@ -166,17 +184,15 @@ tabela
 *******************************************************/
 
 
-#tabuleiro{
+#tabuleiro {}
 
-}
-
-#tabuleiro th{
+#tabuleiro th {
 	width: 20%;
 	height: 20%;
 }
 
 
-#promocao{
+#promocao {
 	display: none;
 	left: 20%;
 	top: 15%;
@@ -192,7 +208,7 @@ tabela
 
 
 
-#promocao input{
+#promocao input {
 	margin: 40px;
 }
 
@@ -204,4 +220,3 @@ tabela
 
 
 /*******************************************************/
-
