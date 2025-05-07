@@ -27,32 +27,52 @@ class Peca {
         var desenha = `<canvas onclick="CaminhoPeca('${this.nome}',${this.posicao})" class="peca" id="${this.nome}" value="${tipoPeca}" width="65" height="85"></canvas>`;
         document.getElementById(`${this.posicao}`).innerHTML = desenha;
         DesenhaTipo(this.nome);
+
+
+        
+     
+  
+    
+
     };
     MovePeca(destino) {
         this.posicao = destino;
         this.DesenhaPeca();
-        DesenhaPecasJogando();
         jogada++;
         giraTabuleiro();
+        DesenhaPecasJogando();
     }
 };
+
+function giraPecas(){
+    if (jogada % 2 == 0) {
+    let listaPecas = document.querySelectorAll('.peca');
+    for (let i = 0; i < listaPecas.length; i++) {
+        listaPecas[i].style = `
+        transform: rotate(180deg);
+        `
+    }
+
+    let pecaInimiga = document.querySelectorAll('.pecaInimiga');
+    for (let i = 0; i < pecaInimiga.length; i++) {
+        pecaInimiga[i].style = `
+        transform: rotate(180deg);
+        `
+    }
+}
+}
+
 
 
 function giraTabuleiro() {
 
     if (jogada % 2 == 0) {
         document.getElementById('tabuleiroCompleto').style = `
-    transform: rotate(180deg);
+    animation: spin 3s 1;
+    
     `
+//        transform: rotate(180deg);
 
-        let nodeList = document.querySelectorAll('.peca');
-
-        console.log(nodeList)
-        for (let i = 0; i < nodeList.length; i++) {
-            nodeList[i].style = `
-            transform: rotate(180deg);
-            `
-        }
 
 
 
@@ -120,6 +140,8 @@ function DesenhaPecasJogando() {
     for (const property in PecasJogando) {
         PecasJogando[property].DesenhaPeca();
     }
+    giraPecas();
+
 };
 
 var cartaAtiva = ''
@@ -246,6 +268,17 @@ function CaminhoPeca(nome, posicao) {
                 };
                 document.getElementById(c).innerHTML = `<canvas onclick = "CapturaPeca(${posicao},${c})" class="pecaInimiga" id = "${document.getElementById(c).children[0].id}" value = "${document.getElementById(c).children[0].value}" width="65" height="85"></canvas> `;
                 DesenhaTipo(document.getElementById(c).children[0].id);
+                if (jogada % 2 == 0) {
+              
+                    let pecaInimiga = document.querySelectorAll('.pecaInimiga');
+                    for (let i = 0; i < pecaInimiga.length; i++) {
+                        pecaInimiga[i].style = `
+                        transform: rotate(180deg);
+                        `
+                    }
+                }
+                
+
             }
         }
     }
