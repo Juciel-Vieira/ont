@@ -41,10 +41,16 @@ class Peca {
         jogada++;
         giraTabuleiro();
         DesenhaPecasJogando();
+
+        piscaPecas()
+        
+        //DesenhaPecasJogando();
     }
 };
 
 function giraPecas(){
+
+    
     if (jogada % 2 == 0) {
     let listaPecas = document.querySelectorAll('.peca');
     for (let i = 0; i < listaPecas.length; i++) {
@@ -59,17 +65,40 @@ function giraPecas(){
         transform: rotate(180deg);
         `
     }
+
 }
 }
 
+
+function piscaPecas(){
+
+    let listaPecas = document.querySelectorAll('.peca');
+    //DesenhaPecasJogando();
+    for (let i = 0; i < listaPecas.length; i++) {
+        listaPecas[i].style = `
+        animation: piscaPecas 1s 1;
+        `
+    }
+    setTimeout(() => {
+        
+    }, "50");
+
+    
+
+}
 
 
 function giraTabuleiro() {
+        
+      
+      
 
     if (jogada % 2 == 0) {
+
         document.getElementById('tabuleiroCompleto').style = `
-    animation: spin 3s 1;
-    
+    animation: girando 3s 1;
+    transform: rotate(180deg);
+
     `
 //        transform: rotate(180deg);
 
@@ -79,7 +108,8 @@ function giraTabuleiro() {
     }
     else {
         document.getElementById('tabuleiroCompleto').style = `
-    transform: rotate(0deg);
+        animation: voltando 3s 1;
+    transform: rotate(360deg);
     `
     }
 
@@ -141,7 +171,7 @@ function DesenhaPecasJogando() {
         PecasJogando[property].DesenhaPeca();
     }
     giraPecas();
-
+    DesenhaPecasJogando();
 };
 
 var cartaAtiva = ''
