@@ -37,35 +37,29 @@ class Peca {
     };
     MovePeca(destino) {
         this.posicao = destino;
-        this.DesenhaPeca();
         jogada++;
-        giraTabuleiro();
         DesenhaPecasJogando();
 
-        piscaPecas()
+//        this.DesenhaPeca();
         
-        //DesenhaPecasJogando();
+        giraTabuleiro();
+        //
+
+        
+        
     }
 };
 
 function giraPecas(){
 
-    
     if (jogada % 2 == 0) {
+        
     let listaPecas = document.querySelectorAll('.peca');
     for (let i = 0; i < listaPecas.length; i++) {
         listaPecas[i].style = `
         transform: rotate(180deg);
         `
     }
-
-    let pecaInimiga = document.querySelectorAll('.pecaInimiga');
-    for (let i = 0; i < pecaInimiga.length; i++) {
-        pecaInimiga[i].style = `
-        transform: rotate(180deg);
-        `
-    }
-
 }
 }
 
@@ -76,42 +70,49 @@ function piscaPecas(){
     //DesenhaPecasJogando();
     for (let i = 0; i < listaPecas.length; i++) {
         listaPecas[i].style = `
-        animation: piscaPecas 1s 1;
+        animation: piscaPecas 3s 1;
         `
     }
-    setTimeout(() => {
-        
-    }, "50");
+setTimeout(() => {
+
+DesenhaPecasJogando();
+
+            
+    }, "300");
 
     
-
+         
 }
 
 
 function giraTabuleiro() {
         
-      
-      
 
+piscaPecas()
     if (jogada % 2 == 0) {
 
         document.getElementById('tabuleiroCompleto').style = `
-    animation: girando 3s 1;
-    transform: rotate(180deg);
-
+        animation: girando 0.3s 1;
+        transform: rotate(180deg);
     `
-//        transform: rotate(180deg);
-
+        document.getElementById('cartaCentro').style = `
+        transform: rotate(180deg);
+    `
 
 
 
     }
     else {
         document.getElementById('tabuleiroCompleto').style = `
-        animation: voltando 3s 1;
-    transform: rotate(360deg);
+        animation: voltando 0.3s 1;
+        transform: rotate(360deg);
     `
+        document.getElementById('cartaCentro').style = `
+        transform: rotate(360deg);
+    `
+
     }
+    //piscaPecas()
 
 
 }
@@ -167,11 +168,15 @@ function DesenhaPecasIniciais() {
 
 function DesenhaPecasJogando() {
     DesenhaTabuleiro();
+    
+
     for (const property in PecasJogando) {
         PecasJogando[property].DesenhaPeca();
     }
-    giraPecas();
-    DesenhaPecasJogando();
+giraPecas();
+    
+
+    //DesenhaPecasJogando();
 };
 
 var cartaAtiva = ''
