@@ -28,9 +28,9 @@ function getRandomInt(min, max) {
 var cartas = [];
 
 
-//cartas = ['Abelha', 'Boi', 'Cavalo', 'Abelha', 'Boi']
+cartas = ['Girafa', 'Boi', 'Cavalo', 'Girafa', 'Boi']
 
-carregaCartasJogando()
+//carregaCartasJogando()
 
 function carregaCartasJogando() {
 
@@ -1490,7 +1490,7 @@ function CaminhoPeca(nome, posicao) {
             //ultima e penultima coluna
             else if (penultimaColuna.includes(posicao) || ultimaColuna.includes(posicao)) {
                 for (c = 64; c > 0; c--) {
-                    if (c == (posicao - 2) || c == (posicao - 7)) {
+                    if (c == (posicao + 5) || c == (posicao - 7)) {
                         ValidaCasasGeral()
                     }
                 }
