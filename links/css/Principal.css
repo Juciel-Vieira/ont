@@ -1,16 +1,40 @@
 /******************************************************
 
+			VARIAVEIS
+
+*******************************************************/
+
+
+:root {
+  --selecionado: rgba(114, 205, 22, 0.8);
+  --pecaAtual: rgba(114, 155, 158, 0.8);
+  --pecaAmeacada: rgba(208, 3, 3, 0.8);
+  --fundoTabuleiro: linear-gradient(0deg, rgb(204, 193, 171) 15%, rgba(250, 200, 130, 1) 40%, rgba(176, 132, 71, 1) 60%, rgba(60, 60, 60, 1) 85%);
+  --fundoTabuleiroVirado: linear-gradient(0deg, rgba(60, 60, 60, 1) 0%, rgba(60,60,60, 1) 15%, rgba(176, 132, 71, 1) 40%, rgba(250, 200, 130, 1) 60%, rgb(204, 193, 171) 85%);
+
+}
+
+
+/******************************************************
+
 		GERAL
 
 *******************************************************/
 
 body {
-	background-color: rgb(231, 228, 228);
+
+background: var(--fundoTabuleiro)
+
 }
 
 
 
 
+
+table, th, td {
+	border-collapse: collapse;
+	border: 2px solid black;
+}
 
 @keyframes girando {
 	0% {
@@ -54,21 +78,44 @@ body {
 *******************************************************/
 
 .casaBranca {
-	background-color: rgb(207, 207, 207);
+	background-color: #FAC882;
 	color: blueviolet;
 }
 
-.casaPreta {
-	background-color: rgb(100, 100, 100);
+.casaPrincipalBranca {
+	background-color: rgb(255, 243, 220);
 	color: blueviolet;
+	border: 6px black;
+	border-style: double;
+
+}
+
+
+.casaPrincipalPreta {
+	background-color: rgb(134, 134, 134);
+	color: blueviolet;
+	border: 6px black;
+	border-style: double;
+}
+
+
+.casaPreta {
+	background-color: #b08447;
+	color: blueviolet; 
 }
 
 .caminho {
-	width: 55px;
-	height: 55px;
-	background-color: rgba(128, 236, 255, 0.699);
+	width: 100%;
+	height: 100%;
+	background-color: var(--selecionado);
 	border: none;
 }
+
+.selecionada {
+	background-color: rgb(108, 108, 207);
+	border: none;
+}
+
 
 .semCaminho {
 	width: 90%;
@@ -78,9 +125,10 @@ body {
 }
 
 .pecaInimiga {
-	width: 55px;
-	height: 55px;
-	background-color: rgba(255, 137, 41, 0.808);
+	width: 80%;
+	height: 3em;
+	margin: 0 10% 0 10%;
+	padding: 0px;
 }
 
 .tabuleiro {
@@ -97,34 +145,6 @@ body {
 	background-color: rgb(255, 243, 220);
 	display: flex;
 	justify-content: space-evenly;
-	align-items: center;
-}
-
-#cartasPretas {
-	rotate: 180deg;
-	width: 20em;
-	height: 7em;
-	border: 2px solid black;
-	margin: auto;
-	background-color: rgb(134, 134, 134);
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-}
-
-#cartaCentro {
-	width: 7em;
-	height: 7em;
-	border: 2px solid black;
-	background-color: rgb(186, 186, 186);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-#tabuleiroCarta {
-	display: flex;
-	justify-content: center;
 	align-items: center;
 }
 
@@ -146,9 +166,9 @@ body {
 }
 
 .peca {
-	width: 3em;
+	width: 80%;
 	height: 3em;
-	margin: 0px;
+	margin: 0 10% 0 10%;
 	padding: 0px;
 }
 
@@ -202,11 +222,38 @@ tabela
 *******************************************************/
 
 
-#tabuleiro {}
+#cartasPretas {
+	rotate: 180deg;
+	width: 20em;
+	height: 7em;
+	border: 2px solid black;
+	margin: auto;
+	background-color: rgb(134, 134, 134);
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
 
-#tabuleiro th {
+#cartaCentro {
+	width: 7em;
+	height: 7em;
+	border: 2px solid black;
+	background-color: #b08447;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#tabuleiroCarta {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#tabuleiro td {
 	width: 20%;
 	height: 20%;
+
 }
 
 
