@@ -27,9 +27,20 @@ function getRandomInt(min, max) {
 
 var cartas = [];
 
-while (cartas.length < 5) {
-    let cartaSorteada = getRandomInt(0, 40);
-    if (!cartas.includes(todasCartas[cartaSorteada])) { cartas.push(todasCartas[cartaSorteada]) }
+
+cartas = ['Abelha', 'Boi', 'Cavalo', 'Abelha', 'Boi']
+
+//carregaCartasJogando()
+
+function carregaCartasJogando() {
+
+    while (cartas.length < 5) {
+        let cartaSorteada = getRandomInt(0, 40);
+        if (!cartas.includes(todasCartas[cartaSorteada])) { cartas.push(todasCartas[cartaSorteada]) }
+    }
+
+
+
 }
 
 
@@ -1471,7 +1482,7 @@ function CaminhoPeca(nome, posicao) {
             //primeira e segunda coluna
             if (primeiraColuna.includes(posicao) || segundaColuna.includes(posicao)) {
                 for (c = 64; c > 0; c--) {
-                    if (c == (posicao + 5) || c == (posicao + 2)) {
+                    if (c == (posicao + 5) || c == (posicao - 3)) {
                         ValidaCasasGeral()
                     }
                 }
@@ -1479,7 +1490,7 @@ function CaminhoPeca(nome, posicao) {
             //ultima e penultima coluna
             else if (penultimaColuna.includes(posicao) || ultimaColuna.includes(posicao)) {
                 for (c = 64; c > 0; c--) {
-                    if (c == (posicao - 2) || c == (posicao + 5)) {
+                    if (c == (posicao - 2) || c == (posicao - 7)) {
                         ValidaCasasGeral()
                     }
                 }
@@ -1487,7 +1498,7 @@ function CaminhoPeca(nome, posicao) {
             //geral
             else {
                 for (c = 64; c > 0; c--) {
-                    if (c == (posicao + 5) || c == (posicao + 2) || c == (posicao - 2)) {
+                    if (c == (posicao + 5) || c == (posicao - 3) || c == (posicao - 7)) {
                         ValidaCasasGeral()
                     }
                 }
@@ -1497,7 +1508,7 @@ function CaminhoPeca(nome, posicao) {
             //primeira coluna
             if (primeiraColuna.includes(posicao) || segundaColuna.includes(posicao)) {
                 for (c = 64; c > 0; c--) {
-                    if (c == (posicao - 5) || c == (posicao + 2)) {
+                    if (c == (posicao - 5) || c == (posicao + 7)) {
                         ValidaCasasGeral()
                     }
                 }
@@ -1505,7 +1516,7 @@ function CaminhoPeca(nome, posicao) {
             //ultima e penultima coluna
             else if (penultimaColuna.includes(posicao) || ultimaColuna.includes(posicao)) {
                 for (c = 64; c > 0; c--) {
-                    if (c == (posicao - 2) || c == (posicao - 5)) {
+                    if (c == (posicao - 5) || c == (posicao + 3)) {
                         ValidaCasasGeral()
                     }
                 }
@@ -1513,7 +1524,7 @@ function CaminhoPeca(nome, posicao) {
             //geral
             else {
                 for (c = 64; c > 0; c--) {
-                    if (c == (posicao - 5) || c == (posicao + 2) || c == (posicao - 2)) {
+                    if (c == (posicao - 5) || c == (posicao + 3) || c == (posicao + 7)) {
                         ValidaCasasGeral()
                     }
                 }
@@ -2833,18 +2844,18 @@ function CaminhoPeca(nome, posicao) {
             }
         }
         else {
-            //ultima coluna
-            if (ultimaColuna.includes(posicao)) {
+            //primeira coluna
+            if (primeiraColuna.includes(posicao)) {
                 for (c = 25; c > 0; c--) {
-                    if (c == (posicao + 5) || c == (posicao - 12)) {
+                    if (c == (posicao + 5) || c == (posicao - 8)) {
                         ValidaCasasGeral()
                     }
                 }
             }
-            //primeira coluna
-            else if (primeiraColuna.includes(posicao) || segundaColuna.includes(posicao)) {
+            //ultima coluna
+            else if (ultimaColuna.includes(posicao) || penultimaColuna.includes(posicao)) {
                 for (c = 25; c > 0; c--) {
-                    if (c == (posicao + 5) || c == (posicao + 1)) {
+                    if (c == (posicao + 5) || c == (posicao - 1)) {
                         ValidaCasasGeral()
                     }
                 }
@@ -2852,7 +2863,7 @@ function CaminhoPeca(nome, posicao) {
             //geral
             else {
                 for (c = 25; c > 0; c--) {
-                    if (c == (posicao + 5) || c == (posicao + 1) || c == (posicao - 12)) {
+                    if (c == (posicao + 5) || c == (posicao - 1) || c == (posicao - 8)) {
                         ValidaCasasGeral()
                     }
                 }
