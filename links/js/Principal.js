@@ -28,9 +28,9 @@ function getRandomInt(min, max) {
 var cartas = [];
 
 
-cartas = ['Girafa', 'Boi', 'Cavalo', 'Girafa', 'Boi']
+//cartas = ['Girafa', 'Boi', 'Cavalo', 'Girafa', 'Boi']
 
-//carregaCartasJogando()
+carregaCartasJogando()
 
 function carregaCartasJogando() {
 
