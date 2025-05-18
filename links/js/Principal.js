@@ -7,8 +7,6 @@ window.addEventListener("load", function (event) {
 function desenhaTelaInicial() {
 
 
-    document.getElementById('jogoCompleto').style = 'display:none;'
-
     for (n = 0; n < 10; n++) {
         for (item in todasCartas) {
             document.getElementById('cartasTelaInicial').innerHTML += `<img src="./links/img/carta${todasCartas[item]}.png" class="cartaInicial"></img>`
@@ -58,8 +56,14 @@ var cartas = [];
 
 
 function carregaSom() {
+
+
+    audio = getRandomInt(2, 10);
+
+    console.log(audio);
+
     document.getElementById('audio').innerHTML = `
-	<audio autoplay src="links/audio/metalica.mp3"
+	<audio autoplay src="links/audio/audio${audio}.mp3"
 		type="audio/mpeg">
 
 	</audio>

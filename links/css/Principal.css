@@ -324,7 +324,9 @@ justify-items: center;
 padding: 0;
 }
 
-
+#jogoCompleto{
+	display: none;
+}
 
 
 
