@@ -30,6 +30,58 @@ function iniciaJogo() {
 }
 
 
+var brancasVencemPosicao = false;
+var brancasVencemCaptura = false;
+var pretasVencemPosicao = false;
+var pretasVencemCaptura = false;
+
+
+function validaFimDeJogo() {
+
+
+
+    brancasVencemCaptura = !PecasJogando[1].nome.includes('ReiPreto') && PecasJogando[0].nome.includes('ReiBranco')
+
+    pretasVencemCaptura = !PecasJogando[0].nome.includes('ReiBranco') && PecasJogando[0].nome.includes('ReiPreto')
+
+
+
+    brancasVencemPosicao = ReiBranco1.posicao == '3'
+    pretasVencemPosicao = ReiPreto1.posicao == '23'
+
+
+    brancasVencem = brancasVencemCaptura || brancasVencemPosicao
+
+    pretasVencem = pretasVencemCaptura || pretasVencemPosicao
+
+
+    if (brancasVencem || pretasVencem) {
+        let fraseFinal = ''
+        if (brancasVencem) {
+            fraseFinal = 'AS BRANCAS VENCERAM'
+        }
+        else if (pretasVencem) {
+            fraseFinal = 'AS PRETAS VENCERAM'
+        }
+
+        document.getElementById('faseFinal').innerHTML = `<h2>${fraseFinal}</h2>`
+        document.getElementById('jogoCompleto').style = 'display:none;'
+        document.getElementById('telaInicial').style = 'display:none;'
+        document.getElementById('telaFinal').style = 'display:flex;'
+
+        document.getElementById('audio').innerHTML = `
+	<audio autoplay loop src="links/audio/audio1.mp3"
+		type="audio/mpeg">
+
+	</audio>
+`
+
+    }
+
+
+}
+
+
 
 var PecasJogando = [];
 var jogada = 1;
@@ -43,6 +95,8 @@ var cartaCentral = ''
 var cartaAtiva = ''
 
 var todasCartas = ['Cavalo', 'Boi', 'Dragao', 'Gansa', 'Iguana', 'Guaxinim', 'Cachorro', 'Tartaruga', 'Sapo', 'Vibora', 'Caranguejo', 'Galo', 'Coelho', 'Rato', 'Javali', 'Tigre', 'Girafa', 'Macaco', 'Lontra', 'Lagosta', 'CobraDoMar', 'Zibelina', 'Centopeia', 'Panda', 'Urso', 'Garca', 'LouvaADeus', 'CavaloDeFogo', 'Cobra', 'Enguia', 'Fenix', 'Raposa', 'Camundongo', 'Bufalo', 'Elefante', 'Gato', 'Abelha', 'Aranha', 'Cervo', 'Escorpiao', 'Hipopotamo']
+var brancasVencem = false;
+var pretasVencem = false;
 
 
 function getRandomInt(min, max) {
@@ -63,7 +117,7 @@ function carregaSom() {
     console.log(audio);
 
     document.getElementById('audio').innerHTML = `
-	<audio autoplay src="links/audio/audio${audio}.mp3"
+	<audio autoplay loop src="links/audio/audio${audio}.mp3"
 		type="audio/mpeg">
 
 	</audio>
@@ -85,6 +139,8 @@ function carregaCartasJogando() {
 
 
 }
+
+
 
 
 
@@ -256,24 +312,25 @@ function DesenhaPecasIniciais() {
     //JOGO NORMAL
 
     //Peças Brancas
+
+    PecasJogando.push(ReiBranco1 = new Peca('ReiBranco1', 23));
+    PecasJogando.push(ReiPreto1 = new Peca('ReiPreto1', 3));
+
     PecasJogando.push(PeaoBranco01 = new Peca('PeaoBranco01', 21));
     PecasJogando.push(PeaoBranco02 = new Peca('PeaoBranco02', 22));
     PecasJogando.push(PeaoBranco03 = new Peca('PeaoBranco03', 24));
     PecasJogando.push(PeaoBranco04 = new Peca('PeaoBranco04', 25));
-    PecasJogando.push(ReiBranco1 = new Peca('ReiBranco1', 23));
 
-
-    //Peças Pretas
     PecasJogando.push(PeaoPreto01 = new Peca('PeaoPreto01', 1));
     PecasJogando.push(PeaoPreto02 = new Peca('PeaoPreto02', 2));
     PecasJogando.push(PeaoPreto03 = new Peca('PeaoPreto03', 4));
     PecasJogando.push(PeaoPreto04 = new Peca('PeaoPreto04', 5));
-    PecasJogando.push(ReiPreto1 = new Peca('ReiPreto1', 3));
 
 
 };
 
 function DesenhaPecasJogando() {
+    validaFimDeJogo();
     DesenhaTabuleiro();
 
 
