@@ -1,8 +1,37 @@
 window.addEventListener("load", function (event) {
+    desenhaTelaInicial()
+
+
+});
+
+function desenhaTelaInicial() {
+
+
+    document.getElementById('jogoCompleto').style = 'display:none;'
+
+    for (n = 0; n < 10; n++) {
+        for (item in todasCartas) {
+            document.getElementById('cartasTelaInicial').innerHTML += `<img src="./links/img/carta${todasCartas[item]}.png" class="cartaInicial"></img>`
+        }
+    }
+
+}
+
+
+function iniciaJogo() {
+    document.getElementById('jogoCompleto').style = 'display:flex;'
+    document.getElementById('telaInicial').style = 'display:none;'
+
+
     DesenhaTabuleiro();
     DesenhaPecasIniciais();
-    carregaCartas()
-});
+    carregaCartas();
+    carregaSom()
+
+
+}
+
+
 
 var PecasJogando = [];
 var jogada = 1;
@@ -26,6 +55,16 @@ function getRandomInt(min, max) {
 
 
 var cartas = [];
+
+
+function carregaSom() {
+    document.getElementById('audio').innerHTML = `
+	<audio autoplay src="links/audio/metalica.mp3"
+		type="audio/mpeg">
+
+	</audio>
+`
+}
 
 
 //cartas = ['Girafa', 'Boi', 'Cavalo', 'Girafa', 'Boi']
@@ -61,12 +100,6 @@ class Peca {
         var desenha = `<canvas onclick="CaminhoPeca('${this.nome}',${this.posicao})" class="peca" id="${this.nome}" value="${tipoPeca}" width="65" height="85"></canvas>`;
         document.getElementById(`${this.posicao}`).innerHTML = desenha;
         DesenhaTipo(this.nome);
-
-
-
-
-
-
 
     };
     MovePeca(destino) {
@@ -3385,3 +3418,12 @@ function RecortaImagem(id, inicioX, incioY, largura, altura) {
         ctx.drawImage(img, sx, sy, sWidth, sHeight, 0, 0, dWidth, dHeight);
     };
 }
+
+
+
+
+setTimeout(() => {
+
+
+
+}, "1000");

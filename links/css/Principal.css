@@ -23,11 +23,37 @@
 
 body {
 
-background: var(--fundoTabuleiro)
+background: var(--fundoTabuleiro);
+background-size: cover;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center 
 
 }
 
 
+
+   .start-button {
+      padding: 15px 40px;
+      background: linear-gradient(145deg, #4CAF50, #2E7D32);
+      color: white;
+      font-size: 1.2rem;
+      border: 4px solid black;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .start-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .start-button:active {
+      transform: scale(0.97);
+    }
 
 
 
@@ -271,14 +297,32 @@ tabela
 
 
 
-
+#telaInicial{
+	display: flex;
+	flex-direction: column;
+justify-items: center;
+}
 
 #promocao input {
 	margin: 40px;
 }
 
+#fundoTelaInicial{
+	width: 30em;
+	
+} 
+#cartasTelaInicial{
+	position: fixed;
+	top: 5px;
+	left: 5px;
+	z-index: -1;
+}
 
-
+.cartaInicial{
+	height: 5em;
+	margin: 0;
+padding: 0;
+}
 
 
 

@@ -12,64 +12,84 @@
 
 <body>
 
-	<header>
+
+
+	<section id="telaInicial">
+
+		<img src="./links/img/fundoTelaInicial.png" id="fundoTelaInicial"></img>
 
 
 
-	</header>
-
-
-
-
-	<section id="tabuleiroCompleto">
-
-		<div id="cartasPretas">
-
-
-			<div class="carta" id="carta3">
-
-			</div>
-
-
-
-			<div class="carta" id="carta4">
-
-			</div>
-
-
-
+		<div id="cartasTelaInicial">
 
 		</div>
 
-		<div id="tabuleiroCarta">
-			<table class="tabuleiro">
-				<thead>
-				</thead>
-				<tbody id="tabuleiro">
+		<input type="button" class="start-button" onclick="iniciaJogo()" value="INICIAR JOGO">
 
-				</tbody>
-			</table>
-			<div id="cartaCentro">
+	</section>
 
-				<div class="carta" id="carta5">
+
+	<section id="jogoCompleto">
+		<header>
+
+			<div id="audio">
+			</div>
+		</header>
+
+
+
+
+		<section id="tabuleiroCompleto">
+
+			<div id="cartasPretas">
+
+
+				<div class="carta" id="carta3">
 
 				</div>
 
 
 
-			</div>
-		</div>
+				<div class="carta" id="carta4">
 
-		<div id="cartasBrancas">
-			<div class="carta" id="carta1">
+				</div>
 
-			</div>
-			<div class="carta" id="carta2">
+
+
 
 			</div>
-		</div>
+
+			<div id="tabuleiroCarta">
+				<table class="tabuleiro">
+					<thead>
+					</thead>
+					<tbody id="tabuleiro">
+
+					</tbody>
+				</table>
+				<div id="cartaCentro">
+
+					<div class="carta" id="carta5">
+
+					</div>
+
+
+
+				</div>
+			</div>
+
+			<div id="cartasBrancas">
+				<div class="carta" id="carta1">
+
+				</div>
+				<div class="carta" id="carta2">
+
+				</div>
+			</div>
+		</section>
+
+
 	</section>
-
 
 	<script type="text/javascript">
 
