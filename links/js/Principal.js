@@ -39,11 +39,22 @@ var pretasVencemCaptura = false;
 function validaFimDeJogo() {
 
 
+    if (PecasJogando.length == 1) {
+        if (PecasJogando[0].nome.includes('ReiBranco')) {
+            brancasVencemCaptura = true;
 
-    brancasVencemCaptura = !PecasJogando[1].nome.includes('ReiPreto') && PecasJogando[0].nome.includes('ReiBranco')
+        }
+        else if (PecasJogando[0].nome.includes('ReiPreto')) {
+            pretasVencemCaptura = true;
+        }
 
-    pretasVencemCaptura = !PecasJogando[0].nome.includes('ReiBranco') && PecasJogando[0].nome.includes('ReiPreto')
 
+    }
+    else {
+        brancasVencemCaptura = !PecasJogando[1].nome.includes('ReiPreto') && PecasJogando[0].nome.includes('ReiBranco')
+
+        pretasVencemCaptura = !PecasJogando[0].nome.includes('ReiBranco') && PecasJogando[0].nome.includes('ReiPreto')
+    }
 
 
     brancasVencemPosicao = ReiBranco1.posicao == '3'
@@ -68,6 +79,7 @@ function validaFimDeJogo() {
         document.getElementById('jogoCompleto').style = 'display:none;'
         document.getElementById('telaInicial').style = 'display:none;'
         document.getElementById('telaFinal').style = 'display:flex;'
+        document.getElementById('cartaFinal').innerHTML = `<img src="./links/img/carta${cartas[4]}.png" class="cartaInicial"></img>`
 
         document.getElementById('audio').innerHTML = `
 	<audio autoplay loop src="links/audio/audio1.mp3"
