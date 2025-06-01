@@ -296,15 +296,6 @@ tabela
 	align-items: center;
 }
 
-#cartaFinal img{
-	width: 60vw;
-	height: 90vh;
-	z-index: -1;
-	position: fixed;
-	top: 5vh;
-	left: 20vw;
-animation: giraCartaFinal 10s linear infinite;
-}
 
 
 #cartaCentro:hover {
@@ -385,11 +376,47 @@ background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.8)
 
 }
 
+
+
+@media (orientation: landscape) {
+
 #mensagemFinal{
-	margin-top: 20vh;
+	margin-top: 15vw;
 	background: #FFF;
 background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0.8) 60%, rgba(255, 255, 255, 0) 100%);
 }
 
+
+	#cartaFinal img{
+	width: 40vw;
+	height: 60vw;
+	z-index: -1;
+	position: fixed;
+	top: 5vw;
+	left: 30vw;
+animation: giraCartaFinal 10s linear infinite;
+}
+}
+
+@media (orientation: portrait) {
+
+
+#mensagemFinal{
+	margin-top: 40vw;
+	background: #FFF;
+background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0.8) 60%, rgba(255, 255, 255, 0) 100%);
+}
+
+
+	#cartaFinal img{
+	width: 80vw;
+	height: 100vw;
+	z-index: -1;
+	position: fixed;
+	top: 20vw;
+	left: 10vw;
+animation: giraCartaFinal 10s linear infinite;
+}
+}
 
 /*******************************************************/
