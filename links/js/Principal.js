@@ -106,7 +106,7 @@ var posicaoCartaSelecionada = ''
 var cartaCentral = ''
 var cartaAtiva = ''
 
-var todasCartas = ['Cavalo', 'Boi', 'Dragao', 'Gansa', 'Iguana', 'Guaxinim', 'Cachorro', 'Tartaruga', 'Sapo', 'Vibora', 'Caranguejo', 'Galo', 'Coelho', 'Rato', 'Javali', 'Tigre', 'Girafa', 'Macaco', 'Lontra', 'Lagosta', 'CobraDoMar', 'Zibelina', 'Centopeia', 'Panda', 'Urso', 'Garca', 'LouvaADeus', 'CavaloDeFogo', 'Cobra', 'Enguia', 'Fenix', 'Raposa', 'Camundongo', 'Bufalo', 'Elefante', 'Gato', 'Abelha', 'Aranha', 'Cervo', 'Escorpiao', 'Hipopotamo']
+var todasCartas = ['Cavalo', 'Boi', 'Dragao', 'Gansa', 'Iguana', 'Guaxinim', 'Cachorro', 'Tartaruga', 'Sapo', 'Vibora', 'Caranguejo', 'Galo', 'Coelho', 'Rato', 'Javali', 'Tigre', 'Girafa', 'Macaco', 'Lontra', 'Lagosta', 'CobraDoMar', 'Zibelina', 'Centopeia', 'Panda', 'Urso', 'Garca', 'LouvaADeus', 'CavaloDeFogo', 'Cobra', 'Enguia', 'Fenix', 'Raposa', 'Camundongo', 'Bufalo', 'Elefante', 'Gato', 'Abelha', 'Aranha', 'Cervo', 'Escorpiao', 'Hipopotamo', 'Trex', 'Lobo']
 var brancasVencem = false;
 var pretasVencem = false;
 
@@ -137,7 +137,7 @@ function carregaSom() {
 }
 
 
-//cartas = ['Girafa', 'Boi', 'Cavalo', 'Girafa', 'Boi']
+//cartas = ['Lobo', 'Boi', 'Cavalo', 'Lobo', 'Boi']
 
 carregaCartasJogando()
 
@@ -3421,6 +3421,134 @@ function CaminhoPeca(nome, posicao) {
             ValidaRotasInimigas()
         }
     }
+    else if (cartaAtiva == "cartaTrex") {
+        //valida movimento
+        if (vez == 'branco') {
+            //primeira coluna
+            if (primeiraColuna.includes(posicao)) {
+                for (c = 25; c > 0; c--) {
+                    if (c == (posicao - 10) || c == (posicao - 4)) {
+                        ValidaCasasGeral()
+                    }
+                }
+            }
+            //ultima coluna
+            else if (ultimaColuna.includes(posicao)) {
+                for (c = 25; c > 0; c--) {
+                    if (c == (posicao - 10) || c == (posicao + 4)) {
+                        ValidaCasasGeral()
+                    }
+                }
+            }
+            //geral
+            else {
+                for (c = 25; c > 0; c--) {
+                    if (c == (posicao + 4) || c == (posicao - 10) || c == (posicao - 4)) {
+                        ValidaCasasGeral()
+                    }
+                }
+            }
+        }
+        else {
+            //primeira coluna
+            if (primeiraColuna.includes(posicao)) {
+                for (c = 25; c > 0; c--) {
+                    if (c == (posicao + 10) || c == (posicao - 4)) {
+                        ValidaCasasGeral()
+                    }
+                }
+            }
+            //ultima coluna
+            else if (ultimaColuna.includes(posicao)) {
+                for (c = 25; c > 0; c--) {
+                    if (c == (posicao + 10) || c == (posicao + 4)) {
+                        ValidaCasasGeral()
+                    }
+                }
+            }
+            //geral
+            else {
+                for (c = 25; c > 0; c--) {
+                    if (c == (posicao + 4) || c == (posicao + 10) || c == (posicao - 4)) {
+                        ValidaCasasGeral()
+                    }
+                }
+            }
+        }
+        //desenha casas livres
+        if (vez == meuTime) {
+            //desenha casas livres
+            DesenhaCasasPossiveis()
+        }
+        else {
+            ValidaRotasInimigas()
+        }
+    }
+    else if (cartaAtiva == "cartaLobo") {
+        //valida movimento
+        if (vez == 'branco') {
+            //primeira coluna
+            if (primeiraColuna.includes(posicao)) {
+                for (c = 25; c > 0; c--) {
+                    if (c == (posicao - 10) || c == (posicao + 6)) {
+                        ValidaCasasGeral()
+                    }
+                }
+            }
+            //ultima coluna
+            else if (ultimaColuna.includes(posicao)) {
+                for (c = 25; c > 0; c--) {
+                    if (c == (posicao - 10) || c == (posicao - 6)) {
+                        ValidaCasasGeral()
+                    }
+                }
+            }
+            //geral
+            else {
+                for (c = 25; c > 0; c--) {
+                    if (c == (posicao + 6) || c == (posicao - 10) || c == (posicao - 6)) {
+                        ValidaCasasGeral()
+                    }
+                }
+            }
+        }
+        else {
+            //primeira coluna
+            if (primeiraColuna.includes(posicao)) {
+                for (c = 25; c > 0; c--) {
+                    if (c == (posicao + 10) || c == (posicao + 6)) {
+                        ValidaCasasGeral()
+                    }
+                }
+            }
+            //ultima coluna
+            else if (ultimaColuna.includes(posicao)) {
+                for (c = 25; c > 0; c--) {
+                    if (c == (posicao + 10) || c == (posicao - 6)) {
+                        ValidaCasasGeral()
+                    }
+                }
+            }
+            //geral
+            else {
+                for (c = 25; c > 0; c--) {
+                    if (c == (posicao + 6) || c == (posicao + 10) || c == (posicao - 6)) {
+                        ValidaCasasGeral()
+                    }
+                }
+            }
+        }
+        //desenha casas livres
+        if (vez == meuTime) {
+            //desenha casas livres
+            DesenhaCasasPossiveis()
+        }
+        else {
+            ValidaRotasInimigas()
+        }
+    }
+
+
 
 
     for (c in casasInimigasNoCaminho) {
