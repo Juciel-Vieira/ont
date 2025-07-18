@@ -124,7 +124,7 @@ var cartas = [];
 function carregaSom() {
 
 
-    audio = getRandomInt(2, 10);
+    audio = getRandomInt(2, 11);
 
     console.log(audio);
 
@@ -143,7 +143,7 @@ carregaCartasJogando()
 
 function carregaCartasJogando() {
 
-    let contagemCartas = todasCartas.length - 1;
+    let contagemCartas = todasCartas.length;
     while (cartas.length < 5) {
         let cartaSorteada = getRandomInt(0, contagemCartas);
         if (!cartas.includes(todasCartas[cartaSorteada])) { cartas.push(todasCartas[cartaSorteada]) }
